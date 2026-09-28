@@ -82,8 +82,7 @@ return `KSh ${amount.toLocaleString("en-KE")}`;
 function createProductCard(product) {
 const article = document.createElement("article");
 article.className = "product-card";
-
-```
+    
 const imageContainer = document.createElement("div");
 imageContainer.className = "product-image";
 
@@ -152,14 +151,14 @@ article.appendChild(imageContainer);
 article.appendChild(details);
 
 return article;
-```
+
 
 }
 
 function renderProducts() {
 productGrid.replaceChildren();
 
-```
+    
 productCount.textContent =
     `${filteredProducts.length} product${filteredProducts.length === 1 ? "" : "s"}`;
 
@@ -176,14 +175,14 @@ filteredProducts.forEach((product) => {
 });
 
 renderGallery();
-```
+
 
 }
 
 function populateCategories() {
 const categories = [];
 
-```
+
 products.forEach((product) => {
     if (!categories.includes(product.category)) {
         categories.push(product.category);
@@ -198,7 +197,7 @@ categories.forEach((category) => {
     option.textContent = category;
     categoryFilter.appendChild(option);
 });
-```
+
 
 }
 
@@ -214,7 +213,7 @@ checkoutProduct.appendChild(option);
 function renderGallery() {
 galleryDots.replaceChildren();
 
-```
+
 if (filteredProducts.length === 0) {
     galleryImage.removeAttribute("src");
     galleryImage.alt = "No product selected";
@@ -255,7 +254,7 @@ filteredProducts.forEach((product, index) => {
 
     galleryDots.appendChild(dot);
 });
-```
+
 
 }
 
@@ -264,7 +263,7 @@ if (filteredProducts.length === 0) {
 return;
 }
 
-```
+
 galleryIndex += direction;
 
 if (galleryIndex < 0) {
@@ -274,7 +273,7 @@ if (galleryIndex < 0) {
 }
 
 renderGallery();
-```
+
 
 }
 
@@ -282,7 +281,7 @@ function filterProducts() {
 const searchTerm = productSearch.value.trim().toLowerCase();
 const selectedCategory = categoryFilter.value;
 
-```
+
 filteredProducts = products.filter((product) => {
     const matchesSearch =
         product.name.toLowerCase().includes(searchTerm) ||
@@ -297,7 +296,7 @@ filteredProducts = products.filter((product) => {
 
 galleryIndex = 0;
 renderProducts();
-```
+
 
 }
 
@@ -310,7 +309,7 @@ function updateRunningTotal() {
 const product = getSelectedProduct();
 const quantity = Number(quantityInput.value);
 
-```
+
 if (!product || !Number.isInteger(quantity) || quantity < 1 || quantity > 20) {
     selectedPrice.textContent = "KSh 0";
     runningTotal.textContent = "KSh 0";
@@ -319,7 +318,7 @@ if (!product || !Number.isInteger(quantity) || quantity < 1 || quantity > 20) {
 
 selectedPrice.textContent = formatCurrency(product.price);
 runningTotal.textContent = formatCurrency(product.price * quantity);
-```
+
 
 }
 
@@ -338,7 +337,7 @@ errorElement.classList.remove("is-visible");
 function validateCheckoutForm() {
 let isValid = true;
 
-```
+
 const nameError = document.querySelector("#customer-name-error");
 const emailError = document.querySelector("#customer-email-error");
 const productError = document.querySelector("#checkout-product-error");
@@ -425,14 +424,14 @@ if (quantityInput.value.trim() === "") {
 }
 
 return isValid;
-```
+
 
 }
 
 checkoutForm.addEventListener("submit", (event) => {
 event.preventDefault();
 
-```
+
 formStatus.classList.remove("success-animation");
 formStatus.textContent = "";
 
@@ -453,7 +452,7 @@ formStatus.classList.remove("form-error");
 formStatus.textContent =
     `Order submitted successfully! ${quantity} × ${product.name} = ${formatCurrency(total)}.`;
 formStatus.classList.add("success-animation");
-```
+
 
 });
 
@@ -475,11 +474,11 @@ if (menuToggle && mainNavigation) {
 menuToggle.addEventListener("click", () => {
 const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
 
-```
+
     menuToggle.setAttribute("aria-expanded", String(!isOpen));
     mainNavigation.classList.toggle("is-open");
 });
-```
+
 
 }
 
