@@ -1,6 +1,6 @@
 Full Name: Adams Kipsang
 Admission Number: CIT-227-095/2024
-Live Site: https://adamskipsang6-cmyk.github.io/campusmarket-adams-kipsang/
+Live Site: https://campusmarket-adamskipsang.netlify.app
 
 # CampusMarket
 
